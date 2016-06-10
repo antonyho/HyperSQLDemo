@@ -17,6 +17,8 @@ public class HyperSQLServer {
 	
 	public HyperSQLServer() {}
 	
+	// TODO add a constructor to accept properties
+	
 	public Server getServer() {
 		return this.hsqlServer;
 	}
@@ -26,7 +28,7 @@ public class HyperSQLServer {
 		String propertiesFilename = "hypersql.properties";
 		Properties prop = new Properties();
 		try {
-			InputStream propIS = Launcher.class.getResourceAsStream(propertiesFilename);
+			InputStream propIS = getClass().getClassLoader().getResourceAsStream(propertiesFilename);
 			prop.load(propIS);
 			propIS.close();
 		} catch (IOException e) {
